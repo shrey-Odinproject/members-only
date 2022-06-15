@@ -1,2 +1,28 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<h1>New Article</h1>
+<%# needs to be in partials %>
+<%= form_with model: @post do |pst| %>
+ 
+  <div>
+    <%= pst.label :body %> <br>
+    <%= pst.text_area :body,placeholder: "write somthin" %>
+  </div>
+
+  <div>
+    <%= pst.submit %>
+  </div>
+
+<% end %>
+
+<a href="<%= root_path %>">All posts</a>
