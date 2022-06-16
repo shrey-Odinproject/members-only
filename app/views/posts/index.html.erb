@@ -3,9 +3,25 @@
 <ul>
   <% @posts.each do |post| %>
     <li>
-      <%= post.body %>
+      <%= post.body %> &nbsp;
+
+      <%# main logic %>
+      <%if user_signed_in?%>
+        posted by:  <%=post.user.name%> 
+      <%else%>
+        posted by:  ???????? 
+      <%end%>
+      <%# main logic %>
+
     </li>
   <% end %>
 </ul>
 
-<a href="<%= new_post_path %>">Create new</a>
+<a href="<%= new_post_path %>">Create new</a> <br><br>
+
+<%if user_signed_in?%>
+   <%=link_to 'logout', destroy_user_session_path,:method => :delete %> <br><br>
+<%else%>
+    <%=link_to 'log-in', new_user_session_path%> <br><br>
+    <%=link_to 'sign-up', new_user_registration_path%> <br>
+<%end%>
