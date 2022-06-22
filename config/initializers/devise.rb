@@ -310,5 +310,6 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
   
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :get
+  # config.sign_out_via = :get 
+  # got default :delete to work, needed data:{ turbo_method/"turbo-method" : delete} and not just method: :delete
 end
