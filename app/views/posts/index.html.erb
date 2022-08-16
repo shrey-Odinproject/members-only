@@ -4,7 +4,9 @@
   <% @posts.each do |post| %>
     <li>
       <%= post.body %> &nbsp;
-
+        <% if post.pic.attached? %>
+            <%= image_tag post.pic %>
+        <% end %>
       <%# main logic %>
       <%if user_signed_in?%>
         posted by:  <%=post.user.name%> 
