@@ -78,5 +78,5 @@ end
 
 # Devise gem
 gem 'devise'
-
 gem 'figaro'
+gem 'cloudinary'
