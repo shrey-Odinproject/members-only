@@ -19,7 +19,7 @@
     <%= pst.label :body %> <br>
     <%= pst.text_area :body,placeholder: "write somthin" %>
   </div>
-    <%= pst.file_field :pic %>
+    <%= pst.file_field :pic, accept: 'image/*'%>
 
   <div>
     <%= pst.submit %>

@@ -5,7 +5,7 @@
     <li>
       <%= post.body %> &nbsp;
         <% if post.pic.attached? %>
-            <%= image_tag post.pic %>
+            <%= cl_image_tag post.pic.key, transformation:[{width:350, height:200, crop:"fill"},{effect:"sepia"}]%>
         <% end %>
       <%# main logic %>
       <%if user_signed_in?%>
